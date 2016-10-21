@@ -1,5 +1,7 @@
-require "musicscraper/version"
+require "musicscraper/all"
 
 module Musicscraper
-  # Your code goes here...
+  extend Forwardable
+  extend self
+
 end
