@@ -1,8 +1,14 @@
 module Musicscraper
   module Boomkat
     class RecommendedNew
-      def self.boomkat_all
-        new.all
+      attr_reader :genre
+
+      def initialize(genre='')
+        @genre = genre
+      end
+
+      def self.boomkat_all(genre='')
+        new(genre).all
       end
 
       def all
@@ -37,7 +43,33 @@ module Musicscraper
       end
 
       def boomkat_url
-        'https://boomkat.com/new-releases?q[status]=recommended'
+        "https://boomkat.com/new-releases?q[status]=recommended&q[genre]=#{genre_map}"
+      end
+
+      def genre_map
+        genres[genre]
+      end
+
+      def genres
+        {
+          'Dub Techno' => 62,
+          'Hip-Hop' => 54,
+          'Dark Ambient/Drone' => 57,
+          'Disco/Funk' => 45,
+          'Dub' => 55,
+          'Early Electronic/Soundtrack' => 51,
+          'Electronic' => 46,
+          'Noise' => 56,
+          'Folk' => 60,
+          'Grime' => 52,
+          'Indie/Alternative' => 49,
+          'Industrial' => 47,
+          'Jazz' => 58,
+          'Jungle/Footwork' => 50,
+          'Ambient/Modern Classical' => 44,
+          'Techno/House' => 48,
+          'World' => 53
+        }
       end
     end
   end
