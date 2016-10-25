@@ -1,8 +1,11 @@
 # Musicscraper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/musicscraper`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem provides hashes of new music. It currently scrapes Boomkat's New &
+Recommended, Fact's Mixes & Pitchfork's Best New. The Boomkat module provides
+functionality for genre filtering.
 
-TODO: Delete this and the text above, and describe your gem
+This has been produced with the intention of making a Slack slash command
+integration, with the aim of speeding up music selection/browsing.
 
 ## Installation
 
@@ -22,7 +25,40 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Boomkat:
+
+To list all the recommended new releases:
+```
+ Musicscraper.boomkat_all
+```
+
+To list a specific genre:
+```
+Musiscraper.boomkat_all('Hip-Hop')
+```
+(The genre list can be found in `lib/musiscraper/boomkat/recommended_new.rb`
+
+### Fact:
+
+To list all the current mixes:
+```
+Musiscraper.fact_list
+```
+
+### Pitchfork:
+
+To list all of Pitchfork's Best New:
+```
+Musicscraper.pitchfork_all
+```
+
+To list a specific format:
+```
+Musiscraper.pitchfork_albums
+Musiscraper.pitchfork_tracks
+Musiscraper.pitchfork_reissues
+```
+
 
 ## Development
 
