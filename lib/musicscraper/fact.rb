@@ -5,6 +5,17 @@ module Fact
     end
 
     def list
+      zipped.map do |mix|
+        {
+          name: mix[0],
+          link: mix[1]
+        }
+      end
+    end
+
+    private
+
+    def zipped
       titles.zip(links)
     end
 

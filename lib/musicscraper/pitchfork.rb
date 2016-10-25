@@ -33,10 +33,6 @@ module Pitchfork
       end
     end
 
-    def tracks_zipped
-      artists(track_list).zip(names(track_list))
-    end
-
     def albums
       albums_zipped.map do |album|
         {
@@ -53,6 +49,12 @@ module Pitchfork
           album: reissue[1]
         }
       end
+    end
+
+    private
+
+    def tracks_zipped
+      artists(track_list).zip(names(track_list))
     end
 
     def reissues_zipped
